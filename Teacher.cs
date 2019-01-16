@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace EventsAndDelegates2
 {
@@ -16,7 +17,14 @@ namespace EventsAndDelegates2
             // Get a random grade to give to the paper
             paper.Grade = letterGrades[r];
             // Call the event here
-            PaperGraded?.Invoke(this, new PaperGradedEventArgs() { PaperName = paper.Name, PaperGrade = paper.Grade});
+            PaperGraded?.Invoke(this, new PaperGradedEventArgs() { PaperName = paper.Name, PaperGrade = paper.Grade });
+
+            // Get a student
+            Student s1 = (Student)Student.StudentList
+                            .Select(s => s)
+                            .Where(s => s.PaperSubmitted.Name.Equals(paper.Name))
+                            .ToList()[0];
+            s1.Grade = paper.Grade;
         }
     }
 }
