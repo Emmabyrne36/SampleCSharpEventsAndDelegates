@@ -13,6 +13,5 @@ namespace EventsAndDelegates2
             new Paper{Name = "Romeo and Juliet"},
             new Paper{Name = "Macbeth"}
         };
-
     }
 }

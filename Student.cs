@@ -5,19 +5,21 @@ namespace EventsAndDelegates2
 {
     public class Student
     {
-        private string _grade;
         public event EventHandler<GradeChangedEventArgs> GradeChanged;
         public event EventHandler<PassedExamEventArgs> PassedExam;
-        public string Name { get; set; }
-        public bool IsGoodGrade { get; set; }
-        public Paper PaperSubmitted { get; set; }
+
         public static List<Student> StudentList = new List<Student>()
         {
             new Student {Name = "Juan", PaperSubmitted = Paper.ListOfPapers[0]},
             new Student {Name = "Jess", PaperSubmitted =  Paper.ListOfPapers[1]},
             new Student {Name = "David", PaperSubmitted =  Paper.ListOfPapers[2]},
             new Student {Name = "Lauren", PaperSubmitted =  Paper.ListOfPapers[3]}
-        };
+        };        
+        public string Name { get; set; }
+        public bool IsGoodGrade { get; set; }
+        public Paper PaperSubmitted { get; set; }
+
+        private string _grade;
         public string Grade
         {
             get
